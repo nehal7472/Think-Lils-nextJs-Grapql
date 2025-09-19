@@ -6,7 +6,10 @@ import { fadeIn } from "@/framerMotion/variants";
 
 export default function AboutSection() {
   return (
-    <section className="py-24 bg-[#0A1019] text-white relative overflow-hidden">
+    <section
+      id="about"
+      className="py-24 bg-[#0A1019] text-white relative overflow-hidden"
+    >
       {/* Background gradient decoration */}
       <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-transparent to-transparent pointer-events-none" />
 

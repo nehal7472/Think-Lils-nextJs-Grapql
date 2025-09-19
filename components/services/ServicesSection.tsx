@@ -30,7 +30,7 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section className="py-20 bg-black text-white relative overflow-hidden">
+    <section id="services" className="py-20 bg-black text-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 text-center">
         {/* Section Title */}
         <motion.p

@@ -42,7 +42,10 @@ const steps: Step[] = [
 
 export default function WorkSection() {
   return (
-    <section className="relative bg-[#0A1019] py-20 overflow-hidden">
+    <section
+      id="projects"
+      className="relative bg-[#0A1019] py-20 overflow-hidden"
+    >
       {/* Decorative Glow */}
       <div className="absolute -top-20 -left-20 w-72 h-72 bg-emerald-500/20 rounded-full blur-3xl" />
       <div className="absolute -bottom-20 -right-20 w-72 h-72 bg-emerald-500/20 rounded-full blur-3xl" />

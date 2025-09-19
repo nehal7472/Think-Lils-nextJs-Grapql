@@ -1,16 +1,28 @@
+"use client";
+
 import { Mail, Phone, Clock } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import { motion } from "framer-motion";
+import { fadeIn } from "@/framerMotion/variants";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0d1117] text-gray-300">
+    <footer className="bg-[#0d1117] text-gray-300 relative overflow-hidden">
+      {/* Emerald Glow */}
+      <div className="absolute -top-20 -left-20 w-72 h-72 bg-emerald-500/10 rounded-full blur-3xl" />
+      <div className="absolute -bottom-20 -right-20 w-72 h-72 bg-emerald-500/10 rounded-full blur-3xl" />
+
       {/* Top Section */}
-      <div className="py-16 px-6 md:px-12 border-b border-gray-800">
+      <div className="py-16 px-6 md:px-12 border-b border-gray-800 relative z-10">
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-12">
           {/* Company Info */}
-          <div>
+          <motion.div
+            variants={fadeIn("up", 0.1)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+          >
             <Image
               src="/images/logo.png"
               alt="Logo"
@@ -22,29 +34,40 @@ export default function Footer() {
               We provide world-class digital marketing services and help brands
               grow with innovative strategies, technology, and design solutions.
             </p>
-          </div>
+          </motion.div>
 
           {/* Contact Details */}
-          <div className="space-y-5">
+          <motion.div
+            variants={fadeIn("up", 0.2)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="space-y-5"
+          >
             <h3 className="text-white font-semibold text-lg mb-3">
               Contact Us
             </h3>
             <div className="flex items-center gap-3">
-              <Mail className="w-5 h-5 text-green-400" />
+              <Mail className="w-5 h-5 text-emerald-400" />
               <span>thinklilatech@gmail.com</span>
             </div>
             <div className="flex items-center gap-3">
-              <Phone className="w-5 h-5 text-green-400" />
+              <Phone className="w-5 h-5 text-emerald-400" />
               <span>+880 176 6913 719</span>
             </div>
             <div className="flex items-center gap-3">
-              <Clock className="w-5 h-5 text-green-400" />
+              <Clock className="w-5 h-5 text-emerald-400" />
               <span>Mon - Fri, 10am - 5pm</span>
             </div>
-          </div>
+          </motion.div>
 
           {/* Newsletter */}
-          <div>
+          <motion.div
+            variants={fadeIn("up", 0.3)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+          >
             <h3 className="text-white font-semibold text-lg mb-3">
               Subscribe Newsletter
             </h3>
@@ -57,7 +80,7 @@ export default function Footer() {
                 />
                 <button
                   type="submit"
-                  className="px-5 bg-green-500 hover:bg-green-600 text-black font-semibold transition"
+                  className="px-5 bg-emerald-500 hover:bg-emerald-600 text-black font-semibold transition"
                 >
                   Subscribe
                 </button>
@@ -65,27 +88,33 @@ export default function Footer() {
               <label className="flex items-start gap-2 text-sm text-gray-400">
                 <input
                   type="checkbox"
-                  className="mt-1 accent-green-500 cursor-pointer"
+                  className="mt-1 accent-emerald-500 cursor-pointer"
                 />
                 <span>
                   I agree to the{" "}
-                  <a href="#" className="underline text-green-400">
+                  <a href="#" className="underline text-emerald-400">
                     Privacy Policy
                   </a>
                 </span>
               </label>
             </form>
-          </div>
+          </motion.div>
         </div>
       </div>
 
       {/* Bottom Section */}
-      <div className="py-6 px-6 md:px-12">
+      <motion.div
+        variants={fadeIn("up", 0.4)}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        className="py-6 px-6 md:px-12 relative z-10"
+      >
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-400">
           {/* Left */}
           <p>
             © {new Date().getFullYear()}{" "}
-            <span className="text-green-400 font-semibold">
+            <span className="text-emerald-400 font-semibold">
               Think&Lila Tech
             </span>
             . All Rights Reserved.
@@ -97,14 +126,14 @@ export default function Footer() {
               <Link
                 key={link}
                 href={`/${link.toLowerCase()}`}
-                className="hover:text-green-400 transition-colors duration-200"
+                className="hover:text-emerald-400 transition-colors duration-200"
               >
                 {link}
               </Link>
             ))}
           </div>
         </div>
-      </div>
+      </motion.div>
     </footer>
   );
 }

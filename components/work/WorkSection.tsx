@@ -2,6 +2,8 @@
 
 import { Search, Crosshair, BarChart3, ArrowUpRight } from "lucide-react";
 import { JSX } from "react";
+import { motion } from "framer-motion";
+import { fadeIn } from "@/framerMotion/variants";
 
 type Step = {
   id: number;
@@ -47,19 +49,29 @@ export default function WorkSection() {
 
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         {/* Section Title */}
-        <div className="text-center mb-16">
+        <motion.div
+          variants={fadeIn("up", 0.1)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
           <p className="text-emerald-400 font-medium mb-2">— How It Works</p>
           <h2 className="text-3xl md:text-4xl font-bold text-white leading-snug">
             Simple Steps to Get Professional Results
           </h2>
-        </div>
+        </motion.div>
 
         {/* Steps Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {steps.map((step) => (
-            <div
+          {steps.map((step, i) => (
+            <motion.div
               key={step.id}
-              className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 shadow-md hover:shadow-emerald-400/20 transition-all"
+              variants={fadeIn("up", i * 0.2)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 shadow-md hover:shadow-emerald-400/30 transition-all hover:-translate-y-2"
             >
               {/* Icon Container */}
               <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-emerald-500/10 mb-6 group-hover:scale-110 transition-transform">
@@ -83,7 +95,7 @@ export default function WorkSection() {
               >
                 Learn More <ArrowUpRight className="w-4 h-4" />
               </a>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

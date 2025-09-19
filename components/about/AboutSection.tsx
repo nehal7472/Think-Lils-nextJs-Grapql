@@ -1,4 +1,8 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { fadeIn } from "@/framerMotion/variants";
 
 export default function AboutSection() {
   return (
@@ -8,7 +12,12 @@ export default function AboutSection() {
 
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative">
         {/* Left Content */}
-        <div>
+        <motion.div
+          variants={fadeIn("left", 0.2)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
           <p className="text-emerald-400 mb-3 font-semibold tracking-wide uppercase">
             — About Company
           </p>
@@ -25,7 +34,13 @@ export default function AboutSection() {
           </p>
 
           {/* Clients */}
-          <div className="flex items-center gap-5 border-t border-gray-700 pt-6">
+          <motion.div
+            variants={fadeIn("up", 0.4)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="flex items-center gap-5 border-t border-gray-700 pt-6"
+          >
             {/* Client Avatars */}
             <div className="flex -space-x-3">
               {[
@@ -52,32 +67,57 @@ export default function AboutSection() {
               </span>{" "}
               Around the World
             </p>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Right Images */}
-        <div className="relative flex flex-col gap-6">
+        <motion.div
+          variants={{
+            hidden: { opacity: 0, y: 40 },
+            show: {
+              opacity: 1,
+              y: 0,
+              transition: { staggerChildren: 0.3, delayChildren: 0.3 },
+            },
+          }}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="relative flex flex-col gap-6"
+        >
           {/* Top Image */}
-          <Image
-            src="https://images.unsplash.com/photo-1681164315014-06bf36b2597a?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0"
-            alt="Team meeting"
-            width={520}
-            height={360}
-            className="rounded-2xl shadow-xl hover:scale-[1.02] transition-transform duration-300"
-          />
+          <motion.div
+            variants={fadeIn("up", 0.2)}
+            whileHover={{ scale: 1.03 }}
+            transition={{ type: "spring", stiffness: 200, damping: 15 }}
+          >
+            <Image
+              src="https://images.unsplash.com/photo-1681164315014-06bf36b2597a?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0"
+              alt="Team meeting"
+              width={520}
+              height={360}
+              className="rounded-2xl shadow-xl transition-transform duration-300"
+            />
+          </motion.div>
 
-          {/* Bottom Image (offset) */}
-          <Image
-            src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80"
-            alt="Working professional"
-            width={520}
-            height={360}
-            className="rounded-2xl shadow-xl self-end hover:scale-[1.02] transition-transform duration-300"
-          />
+          {/* Bottom Image */}
+          <motion.div
+            variants={fadeIn("up", 0.4)}
+            whileHover={{ scale: 1.03 }}
+            transition={{ type: "spring", stiffness: 200, damping: 15 }}
+          >
+            <Image
+              src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80"
+              alt="Working professional"
+              width={520}
+              height={360}
+              className="rounded-2xl shadow-xl self-end transition-transform duration-300"
+            />
+          </motion.div>
 
           {/* Decorative circle */}
           <div className="absolute -z-10 -top-10 -left-10 w-72 h-72 bg-emerald-500/20 rounded-full blur-3xl" />
-        </div>
+        </motion.div>
       </div>
     </section>
   );

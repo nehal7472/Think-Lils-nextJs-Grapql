@@ -6,15 +6,15 @@ import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "#about", label: "About" },
-  { href: "#services", label: "Services" },
-  { href: "#projects", label: "Projects" },
+  { href: "about", label: "About" },
+  { href: "services", label: "Services" },
+  { href: "projects", label: "Projects" },
+  { href: "contact", label: "Contact" },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-
 
   useEffect(() => {
     let ticking = false;
@@ -36,7 +36,6 @@ export default function Navbar() {
     };
   }, []);
 
-
   useEffect(() => {
     const prev = document.body.style.overflow;
     if (menuOpen) {
@@ -48,7 +47,6 @@ export default function Navbar() {
       document.body.style.overflow = prev || "";
     };
   }, [menuOpen]);
-
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -62,7 +60,7 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 w-full z-40 transition-colors ${
+        className={`fixed top-0 left-0 w-full z-50 transition-colors ${
           scrolled || menuOpen ? "bg-[#0d1117]/85 shadow-md" : "bg-transparent"
         }`}
       >

@@ -87,7 +87,7 @@ export default function HeroSection() {
 
       {/* Prev / Next Navigation */}
       <motion.div
-        variants={fadeIn("left", 1.2)}
+        variants={fadeIn("up", 1.2)}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}

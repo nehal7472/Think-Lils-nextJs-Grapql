@@ -26,8 +26,8 @@ export default function SingleProjectPage({
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-black/70 flex flex-col justify-center px-6">
-          <div className="max-w-6xl mx-auto w-full">
+        <div className="absolute inset-0 bg-black/70 flex flex-col justify-center px-6 ">
+          <div className="max-w-6xl mx-auto w-full ">
             {/* Page Header */}
             <PageHeader
               title="Projects"
@@ -36,7 +36,7 @@ export default function SingleProjectPage({
                 { label: "Projects", href: "/projects" },
                 { label: project.title },
               ]}
-              className="mb-6 text-white"
+              className="mb-6  text-white pt-24 md:pt-0 sm:pt-0"
             />
 
             {/* Project Title */}

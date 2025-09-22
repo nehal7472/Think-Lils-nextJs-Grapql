@@ -42,7 +42,7 @@ export default function AboutSection() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="flex items-center gap-5 border-t border-gray-700 pt-6"
+            className="flex:row md:flex items-center gap-5 border-t border-gray-700 pt-6"
           >
             {/* Client Avatars */}
             <div className="flex -space-x-3">

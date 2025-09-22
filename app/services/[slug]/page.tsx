@@ -74,8 +74,12 @@ export default function ServiceDetailPage() {
             href="/contact"
             className="px-8 py-4 bg-emerald-500 text-black font-semibold rounded-lg hover:bg-emerald-400 transition"
           >
-            Get Started with {service.title}
+            Get Started
           </Link>
+          <p className="mt-4 text-gray-400 text-sm">
+            with{" "}
+            <span className="underline font-semibold"> {service.title}</span>
+          </p>
         </div>
       </section>
     </main>

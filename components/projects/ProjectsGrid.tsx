@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { fadeIn } from "@/framerMotion/variants";
+import Link from "next/link";
 
 const projects = [
   {
@@ -59,7 +60,6 @@ export default function ProjectsGrid() {
       >
         More of Our Work
       </motion.h2>
-
       <div className="grid md:grid-cols-3 gap-10">
         {projects.map((project, idx) => (
           <motion.div
@@ -70,18 +70,21 @@ export default function ProjectsGrid() {
             viewport={{ once: true }}
             className="group relative overflow-hidden rounded-2xl shadow-lg"
           >
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-60 object-cover transition-transform duration-300 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-black/50 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6">
-              <h3 className="text-xl font-semibold">{project.title}</h3>
-              <p className="text-gray-300 text-sm">{project.category}</p>
-            </div>
+            <Link href={`/projects/${project.id}`}>
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-60 object-cover transition-transform duration-300 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-black/50 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6">
+                <h3 className="text-xl font-semibold">{project.title}</h3>
+                <p className="text-gray-300 text-sm">{project.category}</p>
+              </div>
+            </Link>
           </motion.div>
         ))}
       </div>
+      ;
     </section>
   );
 }

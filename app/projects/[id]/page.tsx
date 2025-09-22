@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { fadeIn } from "@/framerMotion/variants";
+import PageHeader from "@/components/PageHeader";
 
 const projects = [
   {

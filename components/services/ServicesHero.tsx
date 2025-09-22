@@ -1,10 +1,15 @@
 "use client";
 import { motion } from "framer-motion";
 import { fadeIn } from "@/framerMotion/variants";
+import PageHeader from "../PageHeader";
 
 export default function ServicesHero() {
   return (
-    <section className="relative py-32 bg-gradient-to-b from-emerald-600/10 via-transparent to-[#0A1019] text-center">
+    <section className="relative py-24 bg-gradient-to-b from-emerald-600/10 via-transparent to-[#0A1019] text-center">
+      <PageHeader
+        title="Our Services"
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Our Services" }]}
+      />
       <motion.h1
         variants={fadeIn("up", 0.2)}
         initial="hidden"

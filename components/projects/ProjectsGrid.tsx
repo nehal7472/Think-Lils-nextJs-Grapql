@@ -2,51 +2,7 @@
 import { motion } from "framer-motion";
 import { fadeIn } from "@/framerMotion/variants";
 import Link from "next/link";
-
-const projects = [
-  {
-    id: 1,
-    title: "Social Media Campaign",
-    category: "Marketing",
-    image:
-      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: 2,
-    title: "Mobile App Design",
-    category: "UI/UX",
-    image:
-      "https://images.unsplash.com/photo-1607082349566-187342b4d16b?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: 3,
-    title: "Corporate Website",
-    category: "Web Development",
-    image:
-      "https://images.unsplash.com/photo-1487014679447-9f8336841d58?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: 4,
-    title: "SEO Growth Project",
-    category: "SEO",
-    image:
-      "https://images.unsplash.com/photo-1508830524289-0adcbe822b40?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: 5,
-    title: "Product Branding",
-    category: "Branding",
-    image:
-      "https://images.unsplash.com/photo-1562577309-4932fdd64cd1?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: 6,
-    title: "Analytics Dashboard",
-    category: "Data Visualization",
-    image:
-      "https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=800&q=80",
-  },
-];
+import { projects } from "@/lib/projects"; // ✅ import shared data
 
 export default function ProjectsGrid() {
   return (
@@ -84,7 +40,6 @@ export default function ProjectsGrid() {
           </motion.div>
         ))}
       </div>
-      ;
     </section>
   );
 }

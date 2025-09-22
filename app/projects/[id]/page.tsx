@@ -57,7 +57,6 @@ const projects = [
     ],
     technologies: ["Figma", "Adobe XD", "React Native", "UserTesting"],
   },
-  // add more projects as needed
 ];
 
 export default function SingleProjectPage({
@@ -70,7 +69,7 @@ export default function SingleProjectPage({
 
   return (
     <main className="bg-[#0A1019] text-white min-h-screen">
-      {/* Hero / Banner */}
+      {/* Hero Image */}
       <section className="relative h-[450px] w-full">
         <Image
           src={project.image}
@@ -79,16 +78,30 @@ export default function SingleProjectPage({
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-black/70 flex flex-col items-center justify-center text-center px-6">
-          <motion.h1
-            variants={fadeIn("down", 0.2)}
-            initial="hidden"
-            animate="show"
-            className="text-5xl font-extrabold mb-4"
-          >
-            {project.title}
-          </motion.h1>
-          <p className="text-gray-300 text-lg">{project.category}</p>
+        <div className="absolute inset-0 bg-black/70 flex flex-col justify-center px-6">
+          <div className="max-w-6xl mx-auto w-full">
+            {/* Page Header */}
+            <PageHeader
+              title="Projects"
+              breadcrumbs={[
+                { label: "Home", href: "/" },
+                { label: "Projects", href: "/projects" },
+                { label: project.title },
+              ]}
+              className="mb-6 text-white"
+            />
+
+            {/* Project Title */}
+            <motion.h1
+              variants={fadeIn("down", 0.2)}
+              initial="hidden"
+              animate="show"
+              className="text-5xl font-extrabold text-white mb-2"
+            >
+              {project.title}
+            </motion.h1>
+            <p className="text-gray-300 text-lg">{project.category}</p>
+          </div>
         </div>
       </section>
 

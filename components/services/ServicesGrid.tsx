@@ -1,48 +1,49 @@
 "use client";
 import { motion } from "framer-motion";
 import { fadeIn } from "@/framerMotion/variants";
+import Link from "next/link";
 
 const services = [
   {
     id: 1,
     title: "Digital Marketing",
-    description:
-      "Boost your online presence with targeted campaigns, SEO, and content strategies.",
+    slug: "digital-marketing",
+    description: "Boost your online presence...",
     icon: "📈",
   },
   {
     id: 2,
     title: "Web Development",
-    description:
-      "Custom, scalable, and fast websites built with modern technologies.",
+    slug: "web-development",
+    description: "Custom, scalable websites...",
     icon: "💻",
   },
   {
     id: 3,
     title: "Brand Strategy",
-    description:
-      "Crafting memorable brands that connect emotionally with your audience.",
+    slug: "brand-strategy",
+    description: "Crafting memorable brands...",
     icon: "🎨",
   },
   {
     id: 4,
     title: "UI/UX Design",
-    description:
-      "Intuitive and user-friendly designs that enhance digital experiences.",
+    slug: "ui-ux-design",
+    description: "User-friendly, modern designs...",
     icon: "🖌️",
   },
   {
     id: 5,
     title: "E-commerce Solutions",
-    description:
-      "High-performing e-commerce platforms that drive sales and growth.",
+    slug: "ecommerce-solutions",
+    description: "High-performing online stores...",
     icon: "🛒",
   },
   {
     id: 6,
     title: "Consulting",
-    description:
-      "Expert advice and strategies to transform your business digitally.",
+    slug: "consulting",
+    description: "Expert advice for growth...",
     icon: "🤝",
   },
 ];
@@ -70,9 +71,13 @@ export default function ServicesGrid() {
             viewport={{ once: true }}
             className="bg-[#1E293B] p-8 rounded-2xl shadow-lg hover:scale-105 transition-transform"
           >
-            <div className="text-4xl mb-4">{service.icon}</div>
-            <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
-            <p className="text-gray-400">{service.description}</p>
+            <Link href={`/services/${service.slug}`}>
+              <div>
+                <div className="text-4xl mb-4">{service.icon}</div>
+                <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
+                <p className="text-gray-400">{service.description}</p>
+              </div>
+            </Link>
           </motion.div>
         ))}
       </div>
